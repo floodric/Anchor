@@ -79,7 +79,7 @@
         script.type = 'text/javascript';  
         script.src = req; 
         document.body.appendChild(script);
-		alert('x');
+		
         var script = document.createElement('script'); 
         script.type = 'text/javascript';  
         script.src = works; 
@@ -105,6 +105,7 @@
                 lat: latlng.lat(),
                 lng: latlng.lng()
               });
+			  alert(latlng.lat());
             }
           }
         });
@@ -150,6 +151,7 @@
         //element.innerHTML += 'dist: ' + d + '<br />';                 
         //codeLatLng(position.coords.latitude,position.coords.longitude);
 		lookup("5000 Forbes Ave");
+		betterlookup();
     }
 
     // onError Callback receives a PositionError object
