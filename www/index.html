@@ -60,19 +60,14 @@
     // device APIs are available
     //
     function onDeviceReady() {
-
-        alert('geoloc start');
-
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
-
-        alert('geoloc done');
+        initialize();
     }
         
 
     // onSuccess Geolocation
     //
     function onSuccess(position) {
-        alert('geoloc sucess')
         var element = document.getElementById('geolocation');
         element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
                             'Longitude: '          + position.coords.longitude             + '<br />' +
@@ -109,7 +104,8 @@
 
     function codeAddress() {
       alert('code address');
-      var address ="5000 Forbes Ave Pittsburgh PA 15213";      
+      var address ="5000 Forbes Ave Pittsburgh PA 15213"; 
+      alert('code address');     
       geocoder.geocode( { 'address': address}, function(results, status) {
         alert('geocode ran');
         if (status == google.maps.GeocoderStatus.OK) {
