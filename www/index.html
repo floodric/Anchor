@@ -100,6 +100,7 @@
         center: latlng
       }
       map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+      alert('initialied');
     }   
 
     function codeAddress() {
@@ -118,6 +119,8 @@
           alert('Geocode was not successful for the following reason: ' + status);
         }
       });
+
+
       alert('code address done');
     }
 

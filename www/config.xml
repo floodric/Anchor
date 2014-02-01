@@ -3,9 +3,9 @@
     version="1.0.0" 
     xmlns="http://www.w3.org/ns/widgets" 
     xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>HelloWorld</name>
+    <name>Anchor</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Anchor is a geolocation based texting app
     </description>
     <author email="support@phonegap.com" href="http://phonegap.com">
         Phineas Taylor-Webb
