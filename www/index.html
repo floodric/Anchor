@@ -73,7 +73,7 @@
         var callback= 'callback=alert';
         var inFormat='inFormat=json'
         var outFormat = 'outFormat=json';
-        var req = ["http://www.mapquestapi.com/geocoding/v1/address?",key,'&',callback,'&',location,'&',outFormat].join('');
+        var req = ["http://www.mapquestapi.com/geocoding/v1/address?",key,'&',callback,'&',location].join('');
         var script = document.createElement('script'); 
         script.type = 'text/javascript';  
         script.src = req; 
