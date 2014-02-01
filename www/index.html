@@ -51,7 +51,7 @@
     <script type="text/javascript" src="./js/jquery-1.10.2.min.js"></script>
 	 <script type="text/javascript" src="./js/api.js"></script>
 
-     <script id="fail" type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDS21pUvgQsnPiU-bDVbY8WJunEOlnO6wY&sensor=false"></script> 
+     <script id="fail" type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDS21pUvgQsnPiU-bDVbY8WJunEOlnO6wY&sensor=true"></script> 
     <script type="text/javascript" charset="utf-8">
 
        function lookup(userLoc){
@@ -73,11 +73,19 @@
         var works = "http://www.mapquestapi.com/geocoding/v1/address?key=Fmjtd|luur216229%2Cb2%3Do5-90z0dy&callback=alert&location=5000%20Forbes%20Ave%20Pittsburgh,+PA";
         var jsondata='json='+JSON.stringify(jsondata);
         var location='location='+encodeURIComponent("5000 Forbes Ave Pittsburgh, PA");
-        var callback= 'callback=derp';
+        var callback= 'callback=console.log';
         var inFormat='inFormat=json'
         var outFormat = 'outFormat=json';
         var req = ["http://www.mapquestapi.com/geocoding/v1/address?",key,'&',callback,'&',location].join('');
-        var script = document.createElement('script'); 
+        $.getJSON(req, function(data,status){
+			alert('heu');
+		});
+		
+		
+		$.getJSON(works, function(data,status){
+			alert('heu2');
+		});
+		var script = document.createElement('script'); 
         script.type = 'text/javascript';  
         script.src = req; 
         document.body.appendChild(script);
