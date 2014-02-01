@@ -23,5 +23,8 @@
     <gap:platform name="android" />
 
     <gap:plugin name="org.apache.cordova.file-transfer" />
+    <feature name="http://api.phonegap.com/1.0/geolocation"/>
+    <preference name="permissions" value="none"/>
+
 
     </widget>
