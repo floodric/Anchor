@@ -113,6 +113,7 @@
       var lat = parseFloat(latt);
       var lng = parseFloat(long);
       var latlng = new google.maps.LatLng(lat, lng);
+      alert('geocode call starting');
       geocoder.geocode({'latLng': latlng}, function(results, status) {
         alert('geocode returned with stat'+status+' results '+results);
         if (status == google.maps.GeocoderStatus.OK) {
@@ -131,6 +132,7 @@
           alert('Geocoder failed due to: ' + status);
         }
       });
+      alert('geocode call made');
     }
 
 
