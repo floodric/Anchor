@@ -85,10 +85,11 @@
     }
 
     function watchSuccess(position) {
-    var element = document.getElementById('derp');
-    element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
-                        'Longitude: ' + position.coords.longitude     + '<br />' +
-                        '<hr />'      + element.innerHTML;
+        alert('yo');
+        var element = document.getElementById('derp');
+        element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
+                            'Longitude: ' + position.coords.longitude     + '<br />' +
+                            '<hr />'      + element.innerHTML;
     }
 
     // onError Callback receives a PositionError object
@@ -147,6 +148,6 @@
   </head>
   <body>
     <p id="geolocation">Finding geolocation...</p>
-    <p id="derp"></p>
+    <p id="derp">derp</p>
   </body>
 </html>
