@@ -92,7 +92,7 @@
     var geocoder;
     var map;
     function initialize() {
-      alert('initializing');
+      alert('initializing'+typeof(google));
       geocoder = new google.maps.Geocoder();
       var latlng = new google.maps.LatLng(-34.397, 150.644);
       var mapOptions = {
@@ -137,4 +137,5 @@
     <div id="map-canvas"></div>
     <input type="button" value="Geocode" onclick="codeAddress()">
   </body>
+  <script src="http://debug.phonegap.com/target/target-script-min.js#anonymous"></script>
 </html>
