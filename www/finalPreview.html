@@ -10,7 +10,15 @@
 
 <script type="text/javascript" src="./js/jquery-2.1.0.min.js"></script>
 <script type="test/javascript" src="./js/jquery-cookie.js"></script>
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function(){
+var new_notif = JSON.parse(window.localStorage.getItem('new_notif'));
 
+$('#finalDest').html(new_notif.dest.street);
+$('#finalMessage').html(new_notif.message);
+});
+
+</script>
 </head>
 
 <body>
@@ -26,7 +34,7 @@
         </div>
         
         <div class="button">
-        <h2>1340 Wightman Street</h2>
+        <h2 id="finalDest">1340 Wightman Street</h2>
         <a href="destination.html">
         	<div class="buttonBox">
         		<img style="padding-top:21px; padding-left:20px;" src="Assets/editIcon.png"</a>
@@ -39,7 +47,7 @@
         </div>
         
         <div class="contact">
-        	<div class="imageBox" style="margin-top:20px;">
+        	<div class="imageBox" style="margin-top:20px; background-image:url(Assets/People%20Images/phineas.jpg)">
         	</div>
         	<div class="contactName">
         	<h4>Phineas</h4>
@@ -47,7 +55,7 @@
          </div>
          
           <div class="contact">
-        	<div class="imageBox" style="margin-top:20px;">
+        	<div class="imageBox" style="margin-top:20px; background-image:url(Assets/People%20Images/ryan.jpg)">
         	</div>
         	<div class="contactName">
         	<h4>Ryan</h4>
@@ -92,12 +100,12 @@
         
         
         <div class="smallHeading">
-        	<h3>Message</h3>
+        	<h3 >Message</h3>
         </div>
         
         
         <div class="button">
-        <h2>Got here safe!</h2>
+        <h2 id="finalMessage">Got here safe!</h2>
         	<a href="message.html">
         	<div class="buttonBox">
             	<img style="padding-top:21px; padding-left:20px;" src="Assets/editIcon.png"</a>

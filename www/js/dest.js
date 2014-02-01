@@ -43,6 +43,7 @@ window.found = function(response){
 	var dest={};
 	dest.lon=currLatLng.lng;
 	dest.lat = currLatLng.lat;
+	dest.street = response.results[0].locations[0].street;
 	//var new_notif = $.cookie('new_notif');
 	var new_notif = JSON.parse(window.localStorage.getItem('new_notif'));
 	new_notif = new_notif || {};

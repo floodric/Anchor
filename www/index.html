@@ -52,15 +52,35 @@
 	<script type="text/javascript" src="./js/jquery-cookie.js"></script>
 	
     <script type="text/javascript" charset="utf-8">
+	var all_notifs;
+	function onDeviceReady() {
+        navigator.geolocation.watchPosition(onSuccess, onError);
+		all_notifs = JSON.parse(window.localStorage.getItem('all_notifs'));
+		all_notifs = all_notifs || [];
+    }
+    function distance(lat,lon,position)
+	{
+		return Math.sqrt(Math.pow(lat-position.coords.latitude,2) +
+				Math.pow(lon-position.coords.longitude,2) );
+	}
+	var threshold;
+    function onSuccess(position) {
+        
+		for (var i=0;i<all_notifs.length;i++) {
+		
+		
+			if (distance(all_notifs[i].dest.lat,all_notifs[i].dest.lon,position)<=threshold)
+			{
+				//send text
+				//dismiss destination
+				alert("REACHED");
+				$.getJSON('http://anchor-text.herokuapp.com/sms/'+all_notifs[i].phone+'/'+'Ajay'+'/'+all_notifs[i].message,function(data,stat){});
+			}
+		}
+		
+    }
 
-       
-	
-	
-	
-
-    
-
-   
+   // lookup('5000 forbes ave pittsburgh');
 
    
     </script>
