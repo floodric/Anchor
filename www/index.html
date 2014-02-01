@@ -60,13 +60,38 @@
       
         var key= "key=Fmjtd%7Cluur216229%2Cb2%3Do5-90z0dy";
         //var location= 'location='+userLoc;
+        var jsondata = {}; 
+        jsondata.location = {
+            "street":"5000 Forbes Ave",
+            "city":"Pittsburgh",
+            "state":"PA",
+            "postalCode":"15213"
+        }
+        var jsondata='json='+JSON.stringify(jsondata);
         var location=encodeURIComponent("location=5000 forbes ave pittsburgh");
-        var callback= 'callback=alertstuff';
+        var callback= 'callback=alert';
+        var inFormat='inFormat=json'
         var outFormat = 'outFormat=json';
-        var req = ["http://www.mapquestapi.com/geocoding/v1/address?",key,'&',callback,'&',location,'&',outFormat].join('');
+        var req = ["http://www.mapquestapi.com/geocoding/v1/address?",key,'&',callback,'&',inFormat,'&',location,'&',outFormat].join('');
        var script = document.createElement('script'); script.type = 'text/javascript';  script.src = req; document.body.appendChild(script);
         //var resultscript = $('<script>').src(req);
         //$(document.append(resultscript));
+    }
+
+    function betterlookup(){
+        GMaps.geocode({
+          address: "5000 forbes ave pittsburgh PA",
+          callback: function(results, status) {
+            if (status == 'OK') {
+              var latlng = results[0].geometry.location;
+              map.setCenter(latlng.lat(), latlng.lng());
+              map.addMarker({
+                lat: latlng.lat(),
+                lng: latlng.lng()
+              });
+            }
+          }
+        });
     }
 
     function alertstuff(stuff){
