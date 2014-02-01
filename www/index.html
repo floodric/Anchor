@@ -69,7 +69,7 @@
         }
         var works = "http://www.mapquestapi.com/geocoding/v1/address?key=Fmjtd|luur216229%2Cb2%3Do5-90z0dy&callback=alert&location=5000%20Forbes%20Ave%20Pittsburgh,+PA";
         var jsondata='json='+JSON.stringify(jsondata);
-        var location=encodeURIComponent("location=5000 Forbes Ave Pittsburgh, PA");
+        var location='location='+encodeURIComponent("5000 Forbes Ave Pittsburgh, PA");
         var callback= 'callback=alert';
         var inFormat='inFormat=json'
         var outFormat = 'outFormat=json';
