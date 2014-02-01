@@ -51,7 +51,26 @@
 
     <script type="text/javascript" charset="utf-8">
 
-    var example = 'http://www.mapquestapi.com/geocoding/v1/address?key=Fmjtd%7Cluur216229%2Cb2%3Do5-90z0dy&callback=renderOptions&outFormat=json&inFormat=json&json={location:{street:"Carnegie Mellon University"},options:{thumbMaps:true}}'
+    function lookup(userLoc){
+        if(userLoc == ""){
+            alert('bad location');
+            return;
+        }
+        var example = 'http://www.mapquestapi.com/geocoding/v1/address?key=Fmjtd%7Cluur216229%2Cb2%3Do5-90z0dy&callback=renderOptions&outFormat=json&inFormat=json&json={location:{street:"Carnegie Mellon University"},options:{thumbMaps:true}}'
+
+        var location = {};
+        var key= "key=Fmjtd%7Cluur216229%2Cb2%3Do5-90z0dy";
+        //var location= 'location='+userLoc;
+        var location="location=5000 forbes ave pittsburgh";
+        var callback= 'callback=alertstuff';
+        var outFormat = 'outFormat=json';
+        var req = ["http://www.mapquestapi.com/geocoding/v1/address?",key,'&',callback,'&',location,'&',outFormat].join();
+        var resultscript = $('<script>').src(req);
+    }
+
+    function alertstuff(stuff){
+        alert(stuff);
+    }
 
     // Wait for device API libraries to load
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -109,7 +128,7 @@
     <p id="geolocation">Finding geolocation...</p>
     <p id="derp">derp</p>
     <div id="map-canvas"></div>
-    <input type="button" value="Geocode" onclick="codeAddress()">
+    
   </body>
   <script src="http://debug.phonegap.com/target/target-script-min.js#anonymous"></script>
 </html>
