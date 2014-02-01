@@ -47,3 +47,16 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+function setNotification(desiredLat, desiredLon){
+    var notif = {};
+    notif.loc = desiredPos;
+    notif.thresh = 1;
+    var options = {}; // options like timeout error
+    navigator.geoLocation.watchPosition(function(pos){
+        notif.currentLat = pos.coords.latitude;
+        notif.currentLon = pos.coords.longitude;
+        alert(['lat ',notif.currentLat,' lon ',notif.currentLon);
+    });
+
+}
