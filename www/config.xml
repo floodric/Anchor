@@ -25,5 +25,7 @@
     <gap:plugin name="org.apache.cordova.file-transfer" />
     <gap:plugin name="org.apache.cordova.geolocation" />
     <feature name="http://api.phonegap.com/1.0/geolocation"/>
+    
+    <gap:splash gap:density="hdpi" gap:platform="android" src="res/screen/android/SplashScreen_Splash Screen_B_resize.png" />
 
     </widget>
