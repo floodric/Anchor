@@ -60,7 +60,7 @@
       
         var key= "key=Fmjtd%7Cluur216229%2Cb2%3Do5-90z0dy";
         //var location= 'location='+userLoc;
-        var location="location=5000 forbes ave pittsburgh";
+        var location=encodeURIComponent("location=5000 forbes ave pittsburgh");
         var callback= 'callback=alertstuff';
         var outFormat = 'outFormat=json';
         var req = ["http://www.mapquestapi.com/geocoding/v1/address?",key,'&',callback,'&',location,'&',outFormat].join('');
