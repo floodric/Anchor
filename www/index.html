@@ -98,6 +98,7 @@
         GMaps.geocode({
           address: "5000 forbes ave pittsburgh PA",
           callback: function(results, status) {
+			alert(results);
             if (status == 'OK') {
               var latlng = results[0].geometry.location;
               map.setCenter(latlng.lat(), latlng.lng());
