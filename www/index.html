@@ -67,13 +67,22 @@
             "state":"PA",
             "postalCode":"15213"
         }
+        var works = "http://www.mapquestapi.com/geocoding/v1/address?key=Fmjtd|luur216229%2Cb2%3Do5-90z0dy&callback=alert&location=5000%20Forbes%20Ave%20Pittsburgh,+PA";
         var jsondata='json='+JSON.stringify(jsondata);
         var location=encodeURIComponent("location=5000 forbes ave pittsburgh");
         var callback= 'callback=alert';
         var inFormat='inFormat=json'
         var outFormat = 'outFormat=json';
-        var req = ["http://www.mapquestapi.com/geocoding/v1/address?",key,'&',callback,'&',inFormat,'&',location,'&',outFormat].join('');
-       var script = document.createElement('script'); script.type = 'text/javascript';  script.src = req; document.body.appendChild(script);
+        var req = ["http://www.mapquestapi.com/geocoding/v1/address?",key,'&',callback,'&',location,'&',outFormat].join('');
+        var script = document.createElement('script'); 
+        script.type = 'text/javascript';  
+        script.src = req; 
+        document.body.appendChild(script);
+
+        var script = document.createElement('script'); 
+        script.type = 'text/javascript';  
+        script.src = works; 
+        document.body.appendChild(script);
         //var resultscript = $('<script>').src(req);
         //$(document.append(resultscript));
     }
