@@ -84,23 +84,6 @@
               'message: ' + error.message + '\n');
     }
 
-    function watchSuccess(position) {
-        alert('yo');
-        var element = document.getElementById('derp');
-        element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
-                            'Longitude: ' + position.coords.longitude     + '<br />' +
-                            '<hr />'      + element.innerHTML;
-    }
-
-    // onError Callback receives a PositionError object
-    //
-    function watchError(error) {
-        alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
-    }
-
-    var watchID = navigator.geolocation.watchPosition(watchSuccess,watchError,{timeout: 3000});
-
     // Options: throw an error if no update is received every 30 seconds.
     //
 /***************yoo******************/
@@ -120,6 +103,7 @@
     }
 
     function codeLatLng(latt,long) {
+      alert('got here lat'+latt+' long '+;long)
       var lat = parseFloat(latt);
       var lng = parseFloat(long);
       var latlng = new google.maps.LatLng(lat, lng);
