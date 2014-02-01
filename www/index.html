@@ -58,12 +58,18 @@
     //
     function onDeviceReady() {
 
+        alert('geoloc start');
+
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
+        alert('geoloc done');
     }
+        
 
     // onSuccess Geolocation
     //
     function onSuccess(position) {
+        alert('geoloc sucess')
         var element = document.getElementById('geolocation');
         element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
                             'Longitude: '          + position.coords.longitude             + '<br />' +
