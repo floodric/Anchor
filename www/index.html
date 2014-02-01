@@ -68,6 +68,14 @@
 
     // onSuccess Geolocation
     //
+	var lat = 40.4424778;
+	var lon = -79.9501239;
+	function distance(lat,lon,pos)
+	{
+		return Math.sqrt(Math.pow(lat-pos.coors.latitude,2) +
+				Math.pow(lon-pos.coors.longitude,2) );
+	}
+	
     function onSuccess(position) {
         var element = document.getElementById('geolocation');
         element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
@@ -79,7 +87,9 @@
                             'Speed: '              + position.coords.speed                 + '<br />' +
                             'Timestamp: '          + position.timestamp                    + '<br />';
 
-        codeLatLng(position.coords.latitude,position.coords.longitude);
+		var d = distance(lat,lon,position);
+		element.innerHTML += 'dist: ' + d + '<br />';					
+        //codeLatLng(position.coords.latitude,position.coords.longitude);
     }
 
     // onError Callback receives a PositionError object
@@ -107,7 +117,8 @@
     function codeAddress() {
       alert('code address');
       var address ="5000 Forbes Ave Pittsburgh PA 15213"; 
-      alert('code address');     
+      alert('code address');
+	  
       geocoder.geocode( { 'address': address}, function(results, status) {
         alert('geocode ran');
         if (status == google.maps.GeocoderStatus.OK) {
