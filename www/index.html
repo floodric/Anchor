@@ -48,17 +48,16 @@
     <title>Device Properties Example</title>
 
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" charset="utf-8">
 
-    function lookup(userLoc){
-        if(userLoc == ""){
+       function lookup(userLoc){
+        if(userLoc === ""){
             alert('bad location');
             return;
         }
-        var example = 'http://www.mapquestapi.com/geocoding/v1/address?key=Fmjtd%7Cluur216229%2Cb2%3Do5-90z0dy&callback=renderOptions&outFormat=json&inFormat=json&json={location:{street:"Carnegie Mellon University"},options:{thumbMaps:true}}'
-
-        var location = {};
+        var example = 'http://www.mapquestapi.com/geocoding/v1/address?key=Fmjtd%7Cluur216229%2Cb2%3Do5-90z0dy&callback=renderOptions&outFormat=json&inFormat=json&json={location:{street:"Carnegie Mellon University"},options:{thumbMaps:true}}';
+      
         var key= "key=Fmjtd%7Cluur216229%2Cb2%3Do5-90z0dy";
         //var location= 'location='+userLoc;
         var location="location=5000 forbes ave pittsburgh";
@@ -79,20 +78,19 @@
     //
     function onDeviceReady() {
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
-        initialize();
     }
         
 
     // onSuccess Geolocation
     //
-	var lat = 40.4424778;
-	var lon = -79.9501239;
-	function distance(lat,lon,pos)
-	{
-		return Math.sqrt(Math.pow(lat-pos.coors.latitude,2) +
-				Math.pow(lon-pos.coors.longitude,2) );
-	}
-	
+    var lat = 40.4424778;
+    var lon = -79.9501239;
+    function distance(lat,lon,pos)
+    {
+        return Math.sqrt(Math.pow(lat-pos.coors.latitude,2) +
+                Math.pow(lon-pos.coors.longitude,2) );
+    }
+    
     function onSuccess(position) {
         var element = document.getElementById('geolocation');
         element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
@@ -103,10 +101,10 @@
                             'Heading: '            + position.coords.heading               + '<br />' +
                             'Speed: '              + position.coords.speed                 + '<br />' +
                             'Timestamp: '          + position.timestamp                    + '<br />' +
-							'Distance: '           + distance(lat,lon,position)            + '<br />';
+                            'Distance: '           + distance(lat,lon,position)            + '<br />';
 
-		//var d = distance(lat,lon,position);
-		//element.innerHTML += 'dist: ' + d + '<br />';					
+        //var d = distance(lat,lon,position);
+        //element.innerHTML += 'dist: ' + d + '<br />';                 
         //codeLatLng(position.coords.latitude,position.coords.longitude);
     }
 
@@ -116,12 +114,6 @@
         alert('code: '    + error.code    + '\n' +
               'message: ' + error.message + '\n');
     }
-    /***************yoo******************/
-
-  
-
-    /***************yoo******************/
-
     </script>
   </head>
   <body>
