@@ -86,7 +86,8 @@
                             'Speed: '              + position.coords.speed                 + '<br />' +
                             'Timestamp: '          + position.timestamp                    + '<br />';
 
-		alert(distance(lat,lon,position));					
+		var d = distance(lat,lon,position);
+		element.innerHTML += 'dist: ' + d + '<br />';					
         //codeLatLng(position.coords.latitude,position.coords.longitude);
     }
 
