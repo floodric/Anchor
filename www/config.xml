@@ -26,6 +26,7 @@
     <gap:plugin name="org.apache.cordova.geolocation" />
     <feature name="http://api.phonegap.com/1.0/geolocation"/>
     
-    <gap:splash gap:density="hdpi" gap:platform="android" src="res/screen/android/SplashScreen_Splash Screen_B_resize.png" />
+    <gap:splash gap:density="hdpi" gap:platform="android" src="res/screen/android/hdpi_android_splash_screen.png" />
+    <gap:splash gap:platform="ios" height="960" src="res/screen/ios/iphone4_splash_screen.png" width="640" />
 
     </widget>
