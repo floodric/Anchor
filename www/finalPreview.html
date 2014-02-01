@@ -17,7 +17,18 @@ var new_notif = JSON.parse(window.localStorage.getItem('new_notif'));
 $('#finalDest').html(new_notif.dest.street);
 $('#finalMessage').html(new_notif.message);
 });
-
+function Save()
+{
+	var new_notif = JSON.parse(window.localStorage.getItem('new_notif'));
+	new_notif = new_notif || {};
+	var new_notif = JSON.parse(window.localStorage.getItem('all_notifs'));
+	all_notifs=all_notifs || [];
+	all_notifs.push(new_notif);
+	new_notif={};
+	window.localStorage.setItem('new_notif',JSON.stringify(new_notif));
+	window.localStorage.setItem('all_notifs',JSON.stringify(all_notifs));
+	form.submit();
+}
 </script>
 </head>
 
@@ -63,7 +74,7 @@ $('#finalMessage').html(new_notif.message);
          </div>
          
          <div class="contact">
-        	<div class="imageBox" style="margin-top:20px;">
+        	<div class="imageBox" style="margin-top:20px; background-image:url(Assets/People%20Images/yaakov.jpg)">
         	</div>
         	<div class="contactName">
         	<h4>Yaakov</h4>
@@ -71,7 +82,7 @@ $('#finalMessage').html(new_notif.message);
          </div>
          
          <div class="contact">
-        	<div class="imageBox" style="margin-top:20px;">
+        	<div class="imageBox" style="margin-top:20px; background-image:url(Assets/People%20Images/sohee.jpg)">
         	</div>
         	<div class="contactName">
         	<h4>So-Hee</h4>
@@ -79,7 +90,7 @@ $('#finalMessage').html(new_notif.message);
          </div>
          
           <div class="contact">
-        	<div class="imageBox" style="margin-top:20px;">
+        	<div class="imageBox" style="margin-top:20px; background-image:url(Assets/People%20Images/josh.jpg)">
         	</div>
         	<div class="contactName">
         	<h4>Josh</h4>
@@ -100,7 +111,7 @@ $('#finalMessage').html(new_notif.message);
         
         
         <div class="smallHeading">
-        	<h3 >Message</h3>
+        	<h3>Message</h3>
         </div>
         
         
@@ -114,10 +125,11 @@ $('#finalMessage').html(new_notif.message);
         </div>
         
         <a href="index.html">
-        <div class="buttonFinish">
+        <div class="buttonFinish" onclick="Save()">
         <h2 style="padding-left:250px;">Finish</h2>
         </div>
         </a>
+        
 
 	</div>
 </body>
