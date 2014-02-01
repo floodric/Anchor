@@ -114,6 +114,7 @@
       var lng = parseFloat(long);
       var latlng = new google.maps.LatLng(lat, lng);
       geocoder.geocode({'latLng': latlng}, function(results, status) {
+        alert('geocode returned with stat'+status+' results '+results);
         if (status == google.maps.GeocoderStatus.OK) {
           if (results[1]) {
             map.setZoom(11);
