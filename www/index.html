@@ -92,57 +92,43 @@
         alert('code: '    + error.code    + '\n' +
               'message: ' + error.message + '\n');
     }
+    /***************yoo******************/
 
-    // Options: throw an error if no update is received every 30 seconds.
-    //
-/***************yoo******************/
     var geocoder;
     var map;
-    var infowindow = new google.maps.InfoWindow();
-    var marker;
     function initialize() {
+      alert('initializing');
       geocoder = new google.maps.Geocoder();
-      var latlng = new google.maps.LatLng(40.730885,-73.997383);
+      var latlng = new google.maps.LatLng(-34.397, 150.644);
       var mapOptions = {
         zoom: 8,
-        center: latlng,
-        mapTypeId: 'roadmap'
+        center: latlng
       }
       map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-    }
+    }   
 
-    function codeLatLng(latt,long) {
-      alert('got here lat'+latt+' long '+long);
-      var lat = parseFloat(latt);
-      var lng = parseFloat(long);
-      var latlng = new google.maps.LatLng(lat, lng);
-      alert('geocode call starting');
-      geocoder.geocode({'latLng': latlng}, function(results, status) {
-        alert('geocode returned with stat'+status+' results '+results);
+    function codeAddress() {
+      alert('code address');
+      var address ="5000 Forbes Ave Pittsburgh PA 15213";      
+      geocoder.geocode( { 'address': address}, function(results, status) {
+        alert('geocode ran');
         if (status == google.maps.GeocoderStatus.OK) {
-          if (results[1]) {
-            map.setZoom(11);
-            marker = new google.maps.Marker({
-                position: latlng,
-                map: map
-            });
-            infowindow.setContent(results[1].formatted_address);
-            infowindow.open(map, marker);
-          } else {
-            alert('No results found');
-          }
+          map.setCenter(results[0].geometry.location);
+          var marker = new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location
+          });
         } else {
-          alert('Geocoder failed due to: ' + status);
+          alert('Geocode was not successful for the following reason: ' + status);
         }
       });
-      alert('geocode call made');
+      alert('code address done');
     }
-
-
 
     google.maps.event.addDomListener(window, 'load', initialize);
 
-/***************yoo******************/
+
+    /***************yoo******************/
 
     </script>
   </head>
@@ -150,5 +136,6 @@
     <p id="geolocation">Finding geolocation...</p>
     <p id="derp">derp</p>
     <div id="map-canvas"></div>
+    <input type="button" value="Geocode" onclick="codeAddress()">
   </body>
 </html>
