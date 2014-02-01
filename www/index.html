@@ -149,7 +149,7 @@
                 Math.pow(lon-pos.coords.longitude,2) );
     }
     */
-	function Destination(pos,contact)
+	/*function Destination(pos,contact)
 	{
 		this.pos = pos;
 		this.contact = contact;
@@ -160,7 +160,7 @@
 					Math.pow(A.coords.longitude-B.coords.longitude,2) );
 	}
 	var destinations = new Array()
-	
+	*/
     function onSuccess(position) {
         var element = document.getElementById('geolocation');
         element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
@@ -176,7 +176,7 @@
         //var d = distance(lat,lon,position);
         //element.innerHTML += 'dist: ' + d + '<br />';                 
         //codeLatLng(position.coords.latitude,position.coords.longitude);
-		for (Destination D : destinations)
+		/*for (Destination D : destinations)
 		{
 			if (distance(D.pos,position)<=threshold)
 			{
@@ -184,17 +184,17 @@
 				//dismiss destination
 				alert("REACHED");
 			}
-		}	
+		}	*/
 		lookup("5000 Forbes Ave");
 		betterlookup();
     }
-	function setNotification(desiredAddress, desiredContact)
+	/*function setNotification(desiredAddress, desiredContact)
 	{
 		//pos = codeLatLng(desiredAddress);
 		var pos;
 		destinations.push(new Destination(pos, desiredContact));
 			
-	}
+	}*/
     // onError Callback receives a PositionError object
     //
     function onError(error) {
