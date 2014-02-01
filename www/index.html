@@ -64,8 +64,9 @@
         var callback= 'callback=alertstuff';
         var outFormat = 'outFormat=json';
         var req = ["http://www.mapquestapi.com/geocoding/v1/address?",key,'&',callback,'&',location,'&',outFormat].join();
-        var resultscript = $('<script>').src(req);
-        $(document.append(resultscript));
+       var script = document.createElement('script'); script.type = 'text/javascript';  script.src = req; document.body.appendChild(script);
+        //var resultscript = $('<script>').src(req);
+        //$(document.append(resultscript));
     }
 
     function alertstuff(stuff){
