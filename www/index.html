@@ -99,6 +99,8 @@
               'message: ' + error.message + '\n');
     }
 
+    var watchID = navigator.geolocation.watchPosition(watchSuccess,watchError,{timeout: 3000});
+
     // Options: throw an error if no update is received every 30 seconds.
     //
 /***************yoo******************/
@@ -139,6 +141,8 @@
         }
       });
     }
+
+
 
     google.maps.event.addDomListener(window, 'load', initialize);
 
