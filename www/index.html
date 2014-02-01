@@ -83,10 +83,11 @@
                             'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
                             'Heading: '            + position.coords.heading               + '<br />' +
                             'Speed: '              + position.coords.speed                 + '<br />' +
-                            'Timestamp: '          + position.timestamp                    + '<br />';
+                            'Timestamp: '          + position.timestamp                    + '<br />' +
+							'Distance: '           + distance(lat,lon,position)            + '<br />';
 
-		var d = distance(lat,lon,position);
-		element.innerHTML += 'dist: ' + d + '<br />';					
+		//var d = distance(lat,lon,position);
+		//element.innerHTML += 'dist: ' + d + '<br />';					
         //codeLatLng(position.coords.latitude,position.coords.longitude);
     }
 
