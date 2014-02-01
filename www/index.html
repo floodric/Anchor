@@ -49,6 +49,7 @@
 
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" src="./js/jquery-1.10.2.min.js"></script>
+     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script> 
     <script type="text/javascript" charset="utf-8">
 
        function lookup(userLoc){
@@ -157,6 +158,53 @@
     }
 
     lookup('5000 forbes ave pittsburgh');
+
+    /************************************************/
+
+     var geocoder;
+    $(document).ready(function() {
+    geocoder = new google.maps.Geocoder();
+    $('#button-get-reverse-lookup').click(function(){
+    navigator.geolocation.getCurrentPosition(onGetCurrentPositionSuccess, onGetCurrentPositionError);
+    });
+    });
+    var onGetCurrentPositionSuccess = function(position) {
+    console.log("lat: " + position.coords.latitude);
+    console.log("long: " + position.coords.longitude);
+    var lat = parseFloat(position.coords.latitude);
+    var lng = parseFloat(position.coords.longitude);
+    // paris, france - uncomment to test
+    //var lat = parseFloat(48.850258);
+    //var lng = parseFloat(2.351074);
+    // tiburon, california
+    //var lat = parseFloat(37.872685);
+    //var lng = parseFloat(-122.45224);
+    var latlng = new google.maps.LatLng(lat, lng);
+    geocoder.geocode({'latLng': latlng}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+    if (results[0]) {
+    var arrAddress = results[0].address_components;
+    // iterate through address_component array
+    $.each(arrAddress, function (i, address_component) {
+    if (address_component.types[0] == "locality") {
+    console.log(address_component.long_name); // city
+    alert(address_component.long_name);
+    return false; // break
+    }
+    });
+    } else {
+    alert("No results found");
+    }
+    } else {
+    alert("Geocoder failed due to: " + status);
+    }
+    });
+    }
+    var onGetCurrentPositionError = function(error) {
+    console.log("Couldn't get geo coords from device");
+    } 
+
+    /***********************************************/
     </script>
   </head>
   <body>
